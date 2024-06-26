@@ -9,5 +9,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - run: echo "branch name ${{ github.event.pull_request.base.ref }}"
-            - run: echo "branch name ${{ github.event.pull_request.base.label }}"
+            - run: echo "branch name ${{ github.base_ref }}"
