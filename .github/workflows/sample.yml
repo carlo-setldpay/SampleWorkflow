@@ -15,6 +15,6 @@ jobs:
             - run: echo "${{ toJSON(steps.branch-names.outputs) }}"
             - run: echo "branch name ${{ toJSON(github) }}"
             - run: |
-              echo "branch name ${{ github.base_ref }}"
+                  echo "branch name ${{ github.base_ref }}"
             - run: echo "branch name ${{ github.action }}"
             - run: echo "branch name ${{ github.action_path }}"
