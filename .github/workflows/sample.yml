@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: octokit/request-action@v2
+            - uses: octokit/request-action@v2.x
               id: branch-name
               with:
                   route: GET /repos/{owner}/{repo}/pulls/${{ github.issue.number }}
