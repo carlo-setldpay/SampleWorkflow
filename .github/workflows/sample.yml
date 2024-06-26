@@ -9,12 +9,17 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: octokit/request-action@v2.x
-              id: branch-name
-              with:
-                  route: GET /repos/{owner}/{repo}/pulls/${{ github.issue.number }}
-                  owner: carlo-setldpay
-                  repo: SampleWorkflow
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            - run: "echo latest release: '${{ steps.branch-name.outputs.data }}'"
+            # - uses: octokit/request-action@v2.x
+            #   id: branch-name
+            #   with:
+            #       route: GET /repos/{owner}/{repo}/pulls/${{ github.issue.number }}
+            #       owner: carlo-setldpay
+            #       repo: SampleWorkflow
+            #   env:
+            #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            # - run: "echo latest release: '${{ steps.branch-name.outputs.data }}'"
+            - run: |
+                  response=$(curl 'https://api.github.com/repos/carlo-setldpay/SampleWorkflow/pulls/2')
+                  echo "$response"
+                  echo $response
+                  echo "data=$response" >> "$GITHUB_OUTPUT"
