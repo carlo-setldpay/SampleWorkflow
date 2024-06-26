@@ -9,12 +9,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - name: Get branch names.
-              id: branch-names
-              uses: tj-actions/branch-names@v8
-            - run: echo "${{ toJSON(steps.branch-names.outputs) }}"
-            - run: echo "branch name ${{ toJSON(github) }}"
-            - run: |
-                  echo "branch name ${{ github.base_ref }}"
-            - run: echo "branch name ${{ github.action }}"
-            - run: echo "branch name ${{ github.action_path }}"
+            - uses: octokit/request-action@v2
+              id: branch-name
+              with:
+                  route: GET /repos/{owner}/{repo}/pulls/${{ github.issue.number }}
+                  owner: carlo-setldpay
+                  repo: SampleWorkflow
+            - run: '${{ toJSON(steps.branch-name.outputs.data) }}'
