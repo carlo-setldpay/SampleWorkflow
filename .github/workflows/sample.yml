@@ -22,7 +22,7 @@ jobs:
               run: |
                   response=$(curl -L \
                       -H "Accept: application/vnd.github+json" \
-                      https://api.github.com/repos/carlo-setldpay/SampleWorkflow/pulls/2)
+                      'https://api.github.com/repos/carlo-setldpay/SampleWorkflow/pulls/2')
                   echo data=$response >> "$GITHUB_OUTPUT"
             - run: "'${{ steps.sample..data }}'"
             - run: '${{ steps.sample..data.base.ref }}'
