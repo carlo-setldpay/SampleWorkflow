@@ -10,3 +10,5 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - run: echo "branch name ${{ github.base_ref }}"
+            - run: echo "branch name ${{ github.action }}"
+            - run: echo "branch name ${{ github.action_path }}"
