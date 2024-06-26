@@ -17,4 +17,4 @@ jobs:
                   repo: SampleWorkflow
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            - run: '${{ steps.branch-name.outputs.data }}'
+            - run: ${{ steps.branch-name.outputs.data }}
