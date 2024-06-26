@@ -15,4 +15,6 @@ jobs:
                   route: GET /repos/{owner}/{repo}/pulls/${{ github.issue.number }}
                   owner: carlo-setldpay
                   repo: SampleWorkflow
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - run: '${{ toJSON(steps.branch-name.outputs.data) }}'
