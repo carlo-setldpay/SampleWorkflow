@@ -18,8 +18,8 @@ jobs:
             #   env:
             #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             # - run: "echo latest release: '${{ steps.branch-name.outputs.data }}'"
-            - run: |
+            - id: sample
+              run: |
                   response=$(curl -s 'https://api.github.com/repos/carlo-setldpay/SampleWorkflow/pulls/2')
-                  echo "$response"
-                  echo $response
                   echo "data=$response" >> "$GITHUB_OUTPUT"
+            - run: "echo latest release: '${{ steps.sample.outputs.data }}'"
