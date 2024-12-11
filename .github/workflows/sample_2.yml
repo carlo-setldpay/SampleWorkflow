@@ -1,7 +1,7 @@
 name: Sample 
 
 on:
-    [workflow_run]
+    [workflow_dispatch]
 
 jobs:
     run-all:
